@@ -1,7 +1,7 @@
 import type { Banner } from "../../../types/banner";
 import { Pencil, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { API_BASE_URL } from "../../../config/config";
+
 
 interface Props {
   banners: Banner[];
@@ -14,6 +14,8 @@ export default function BannerTable({
   onDelete,
   onToggle,
 }: Props) {
+  const api_base_url = import.meta.env.VITE_API_URL;
+
   return (
     <div className="bg-white rounded-xl shadow overflow-x-auto">
       <table className="min-w-full">
@@ -37,7 +39,7 @@ export default function BannerTable({
                 {/* Image */}
                 <td className="px-4 py-3">
                   <img
-                   src={`${API_BASE_URL}${banner.image}`}
+                   src={`${api_base_url}${banner.image}`}
                     alt={banner.title}
                     className="w-36 h-20 rounded-lg object-cover border"
                   />
